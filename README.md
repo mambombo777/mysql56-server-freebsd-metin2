@@ -10,22 +10,14 @@ pkg install -y wget
 
 pkg install -y unzip
 
-unzip mysql.zip
-
-(***find / -iname "libssl.so.111" && find / -iname "libcrypto.so.111"
-this command should this result as they are installed
-
-/usr/lib/libssl.so.111
-/lib/libcrypto.so.111***)
-
-tar -xzf libs_64bit_mysql.tgz -C /
-
-tar -xzf libs_32bit_mysql.tgz -C /
-
-pkg install mysql56-client-5.6.51.pkg mysql56-server-5.6.51.pkg
-
-sysrc mysql_enable=YES
-
-service mysql-server start
-
-mysql_secure_installation
+   - 'wget https://github.com/mambombo777/mysql56-server-freebsd-metin2/archive/refs/heads/main.zip'
+    - 'unzip -o main.zip'
+    - 'cd mysql56-server-freebsd-metin2-main'
+    - 'unzip -o mysql56.zip'
+    - 'cd mysql56'
+    - 'tar -zxzf libs_64bit_mysql.tgz -C /'
+    - 'tar -zxvf libs_64bit_mysql.tgz -C /'
+    - 'pkg install -y mysql56-client-5.6.51.pkg mysql56-server-5.6.51.pkg'
+    - 'sysrc mysql_enable=YES'
+    - 'service mysql-server start'
+    - 'mysql_secure_installation
